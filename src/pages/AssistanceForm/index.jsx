@@ -25,7 +25,6 @@ export default function AssistanceForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    //TODO Validation logic
     const newErrors = {}
 
     const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/
@@ -65,6 +64,7 @@ export default function AssistanceForm() {
         className={styles.container__form}
         onSubmit={handleSubmit}
         noValidate
+        autocomplete="off"
       >
         <UserDetailsForm
           formData={formData}
@@ -72,7 +72,9 @@ export default function AssistanceForm() {
           errors={errors}
         />
         <FinancialForm />
-        <button type="submit">Submit</button>
+        <button className={styles.container__submit} type="submit">
+          Допомогти
+        </button>
       </form>
     </div>
   )
@@ -83,7 +85,7 @@ const styles = {
     flex
     flex-col
     px-12
-    pt-10
+    py-10
     bg-blue-900
     bg-opacity-60
     backdrop-blur
@@ -100,9 +102,33 @@ const styles = {
     items-center
     mt-2
     pt-12
-    px-36
-    h-[1000px]
+    px-12
+    pb-20
+    h-full
     rounded-2xl
     bg-white
+
+    md:px-36
+  `,
+  container__submit: `
+    flex
+    mt-14
+    px-28
+    py-4
+    rounded-lg
+    bg-gradient-to-r
+    from-[rgb(229,54,86)]
+    to-[rgb(141,104,172)]
+    shadow-[0_0_20px_rgba(219,44,76,0.5)]
+    text-lg
+    text-white
+
+    transition
+    duration-200
+    ease-out
+    hover:from-[rgb(219,44,76)]
+    hover:to-[rgb(131,94,162)]
+    hover:scale-[1.03]
+    active:scale-100
   `,
 }

@@ -173,6 +173,8 @@ export default function UserDetailsForm({
 
 const styles = {
   form__title: `
+    flex
+    text-center
     text-[68px]
     font-[Geometria-ExtraBold]
     leading-none
@@ -192,22 +194,32 @@ const styles = {
   `,
   form__columns: `
     flex
+    flex-col
     justify-between
     w-full
     text-[rgba(0,0,0,0.4)]
     mb-[72px]
+    gap-8
+
+    lg:flex-row
+    lg:gap-0
   `,
   columns__leftColumn: `
     flex
     flex-col
-    w-[450px]
+    w-full
     gap-8
+
+    lg:w-[450px]
   `,
   columns__rightColumn: `
     flex
     flex-col
-    w-[450px]
+    w-full
     gap-8
+
+    lg:w-[450px]
+    lg:ml-12
   `,
   inputGroup: `
     flex
@@ -231,7 +243,9 @@ const styles = {
   `,
   errorMessage: `
     absolute
-    -bottom-6
+    isolate
+    top-full
     text-red-500
+    leading-none
   `,
 }
